@@ -1,11 +1,74 @@
-<!--<div class="card">
-      <h3>Popular Post</h3>
-      <div class="pop_img1">Image</div><br>
-      <div class="pop_img2">Image</div><br>
-      <div class="pop_img3">Image</div>
-    </div>
-    <div class="card">
-      <h3>Follow Me</h3>
-      <p>Some text..</p>
-    </div>-->
+<!DOCTYPE html>
+ <html>
+      <body>
+      <style>
+body {
+  font-family: Arial;
+  margin: 100;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  padding-left: 30rem;
+  padding-right: 30rem;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background: linear-gradient(black, grey);
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: black;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: grey;
+}
+</style>
+      <div class="about-section">
+        <h1>About</h1>
+          <p>Welcome to our About section</p>
+            <p>You can know about our mission and work here</p>
+      </div>
+
+        <h2 style="text-align:center">Contact Us</h2>
+        <center>
+          <div class="card">
+            <div class="container">
+              <h2>Alpha Blog</h2>
+                <p class="title">Founder</p>
+                  <p>Contact me here  for work</p>
+                    <p>alphablog@gmail.com</p>
+                      <p><button class="button">Contact</button></p>
+            </div>
+          </div>
+        </center>  
+      </div>
+
+  
+      </div>
 <%= link_to 'Home', root_path  %>
+</html>
