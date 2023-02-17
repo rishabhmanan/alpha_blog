@@ -6,7 +6,11 @@ gem 'jquery-rails'
 gem 'bcrypt', '~> 3.1.18'
 gem 'will_paginate', '3.3.1'
 gem 'will_paginate-bootstrap', '1.0.2'
+gem 'devise', '~> 4.7', '>= 4.7.3'
+gem 'letter_opener', '~> 1.4', '>= 1.4.1'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sassc-rails', '>= 2.1.0'
 gem 'jquery-rails'
