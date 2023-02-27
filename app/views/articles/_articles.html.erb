@@ -1,4 +1,5 @@
-<div class="col-xs-8 col-xs-offset-2" id="new_article">
+<% obj.each do |article| %>
+<div class="col-xs-8 col-xs-offset-2">
    <div class="well well-lg">
       <div class="article-title">
          <%= link_to article.title, article_path(article) %>
@@ -7,14 +8,14 @@
       <div class="article-body">
          <%= truncate(article.description, length: 100) %>
          <div class="article-meta-details">
-         <small> Created by: <%= article.user.username if article.user %>
-            <% if (@created_at != nil) then %>
-                 <%= time_ago_in_words(article.created_at) %> ago,
-            <% end %>
-            <% if (@updated_at != nil) then %>
-                 last updated: <%= time_ago_in_words(article.updated_at) %> ago
-            <% end %>
-                  </small>
+            <small> Created by: <%= article.user.username if article.user %>
+               <% if (@created_at != nil) then %>
+                  <%= time_ago_in_words(article.created_at) %> ago,
+               <% end %>
+               <% if (@updated_at != nil) then %>
+                  last updated: <%= time_ago_in_words(article.updated_at) %> ago
+               <% end %>
+            </small>
          </div>
       </div>
       <% if user_signed_in? && (current_user == article.user || current_user.admin?)%>
@@ -26,5 +27,6 @@
                                                class: "btn btn-xs btn-danger" %>
          </div>
          <% end %>
-      </div>
+   </div>
 </div>
+<% end %>

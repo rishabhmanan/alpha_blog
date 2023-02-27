@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
     #     !!current_user
     # end
 
+
     def require_user
         unless user_signed_in?
             flash[:danger] = "You must be logged in to perform that action"
