@@ -18,13 +18,18 @@
          </div>
       </div>
       <% if user_signed_in? && (current_user == article.user || current_user.admin?)%>
-         <div class = "article-actions">
-            <%= link_to "Edit this Article", edit_article_path(article), class: "btn btn-xs btn-info" %> 
-            <%= link_to "View this Article", article_path(article), class: "btn btn-xs btn-warning" %> 
+         <div class = "article-actions"> 
+           <div id = "editbutton"> <%= link_to "Edit this Article", edit_article_path(article), class: "btn btn-xs btn-info", remote: true %></div>            
+           <%= link_to "View this Article", article_path(article), class: "btn btn-xs btn-warning" %> 
             <%= button_to "Delete this Article", article_path(article), method: :delete, 
                                                form: { data: { turbo_confirm: 'Are you sure?' } }, 
                                                class: "btn btn-xs btn-danger" %>
          </div>
          <% end %>
       </div>
+
+      <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+         <%= render 'edit_modal', article: article %>
+      </div>
+
 </div>

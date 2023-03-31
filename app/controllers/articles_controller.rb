@@ -14,12 +14,17 @@ class ArticlesController < ApplicationController
 
    def edit
       @article = Article.find(params[:id])
+      respond_to do |format|
+         format.html
+         format.js
+      end
    end
 
    def create
       @article = Article.new(article_params)
       @article.user = current_user
       if @article.save
+         PostMailer.post_created.deliver_later
          flash[:notice] = "Article was succesfully created"
          respond_to do |format|
             # format.html {redirect_to article_path(@article)}
@@ -31,14 +36,19 @@ class ArticlesController < ApplicationController
    end
    
    def update
-      @article = Article.find(params[:id])
+      # respond_to do |format|
       if @article.update (article_params)
-         flash[:notice] = "Article was successfully updated"
-         redirect_to article_path(@article)
+        respond_to do |format|
+          #format.html { redirect_to article_url(@article), notice: "Article was successfully updated." }
+          format.js
+        end
       else
-         render 'edit'
+        respond_to do |format|
+          #format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @article.errors, status: :unprocessable_entity }
+        end
       end
-   end
+    end
 
    def show
       @article = Article.find(params[:id])
@@ -63,11 +73,12 @@ class ArticlesController < ApplicationController
       end
 
       def require_same_user
-         if current_user != @article.user and !current_user.admin?
-            flash[:danger] = "You can only edit or delete your own articles"
-            redirect_to root_path
+         if current_user.id != @article.user.id
+           flash[:danger]= "You can only edit or delete your own articles"
+           redirect_to root_path
          end
-      end
+       end
+
       
       
 end

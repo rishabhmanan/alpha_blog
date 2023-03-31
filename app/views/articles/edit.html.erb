@@ -1,3 +1,8 @@
-<h1 align ="center"> Edit existing article </h1>
-<%= render 'form' %>
-<%= link_to "Back to articles listing", articles_path %>
+ <h1 align ="center"> Edit existing article </h1>
+ <%# <button id="editmodal" onclick="openModal()">Edit this article</button> %>
+ <%#= render 'editmodal' %>
+ <%#= link_to "Back to articles listing", articles_path %>
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <%= render 'edit_modal', local: {article: @article} %>
+</div>

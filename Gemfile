@@ -86,3 +86,8 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
+
+
+gem "react-rails", "= 2.6"
+
+gem "sidekiq", "~> 7.0"

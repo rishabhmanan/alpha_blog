@@ -1,20 +1,27 @@
-<h1 align="center"> Listing all Articles</h1>
-    <div align="center">
-        <%= will_paginate %>
-    </div>
-        <div>
-            <%#= link_to ' New Article', class:"btn btn-primary", data_toggle: "modal", data_target: "#exampleModal" %>
-        </div>
-        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
-            New Article
-        </button>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
-                    <%= render 'modal' %>
-        </div>
-        <div id="articles"> 
-            <%= render 'articles', obj: @articles %> 
-        </div>
-            <div align="center">
-                <%= will_paginate %>
-            </div>
+ <%= react_component("my_subdirectory/HelloWorld", { greeting: "Hello from react-rails." }) %>
+
+<h1 align="center"> Listing all Articles</h1>
+<div align="center">
+    <%= will_paginate %>
+</div>
+
+<div>
+    <%#= link_to ' New Article', class:"btn btn-primary", data_toggle: "modal", data_target: "#exampleModal" %>
+</div>
+
+<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+    New Article
+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <%= render 'modal' %>
+</div>
+
+<div id="articles"> 
+    <%= render 'articles', obj: @articles %> 
+</div>
+
+<div align="center">
+    <%= will_paginate %>
+</div>
