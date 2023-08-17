@@ -1,5 +1,17 @@
+GIT
+  remote: https://github.com/sinatra/sinatra.git
+  revision: fb76534810a1b3d6365eb8e2296bf627cfbef8de
+  specs:
+    rack-protection (3.0.5)
+      rack
+    sinatra (3.0.5)
+      mustermann (~> 3.0)
+      rack (~> 2.2, >= 2.2.4)
+      rack-protection (= 3.0.5)
+      tilt (~> 2.0)
+
 GEM
-  remote: https://rubygems.org/
+  remote: http://www.rubygems.org/
   specs:
     actioncable (7.0.4.2)
       actionpack (= 7.0.4.2)
@@ -107,6 +119,7 @@ GEM
     erubi (1.12.0)
     execjs (2.8.1)
     ffi (1.15.5)
+    ffi (1.15.5-x86-mingw32)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -143,6 +156,8 @@ GEM
     mini_portile2 (2.8.1)
     minitest (5.17.0)
     msgpack (1.6.0)
+    mustermann (3.0.0)
+      ruby2_keywords (~> 0.0.1)
     net-imap (0.3.4)
       date
       net-protocol
@@ -155,8 +170,11 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.14.2-x86-mingw32)
       racc (~> 1.4)
+    nokogiri (1.14.2-x86_64-linux)
+      racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.4.5)
+    pg (1.4.5-x86-mingw32)
     public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -220,6 +238,7 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.2.5)
+    ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     sassc (2.4.0)
       ffi (~> 1.9)
@@ -248,6 +267,7 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.6.0)
       mini_portile2 (~> 2.8.0)
+    sqlite3 (1.6.0-x86_64-linux)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
     thor (1.2.1)
@@ -290,6 +310,7 @@ GEM
 
 PLATFORMS
   x86-mingw32
+  x86_64-linux
 
 DEPENDENCIES
   bcrypt (~> 3.1.18)
@@ -311,6 +332,7 @@ DEPENDENCIES
   sassc-rails (>= 2.1.0)
   selenium-webdriver
   sidekiq (~> 7.0)
+  sinatra!
   sprockets-rails
   sqlite3
   stimulus-rails
@@ -323,7 +345,7 @@ DEPENDENCIES
   will_paginate-bootstrap (= 1.0.2)
 
 RUBY VERSION
-   ruby 3.2.0p0
+   ruby 3.0.0p0
 
 BUNDLED WITH
    2.4.6

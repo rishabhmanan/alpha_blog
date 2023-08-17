@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'hello_world', to: 'hello_world#index'
   devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' 
   end
+  require 'sidekiq/web'
+  mount Sidekiq::Web => "/sidekiq"
   #devise_for :users 
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

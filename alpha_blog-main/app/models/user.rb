@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :lockable, :trackable
          
   alias_attribute :password_digest, :encrypted_password
-  before_create :skip_confirmation_notification!
+  # before_create :skip_confirmation_notification!
 
     has_many :articles, dependent: :destroy
     before_save {self.email = email.downcase }
@@ -17,5 +17,12 @@ class User < ApplicationRecord
     validates :email, presence: true, length: {maximum: 100},
               uniqueness: {case_sensitive: false},
               format:{ with: VALID_EMAIL_REGEX }
-    has_secure_password         
+    has_secure_password   
+
+    before_create :set_username
+
+  private
+    def set_username
+      self.username = self.email[/^[^@]+/]
+    end    
 end

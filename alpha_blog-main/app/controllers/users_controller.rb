@@ -47,6 +47,7 @@ class UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:username, :email, :password)
     end
+    
     def set_user 
         @user = User.find(params[:id])
     end
@@ -57,11 +58,21 @@ class UsersController < ApplicationController
             redirect_to root_path
         end
     end
+
+    def report 
+        ReportWorker.perform_async("10-04-2023","11-04-2023")
+        render text: "REQUEST TO GENERATE YOUR REPORT ADDED TO THE QUEUE"
+    end
+
     def require_admin
         # if logged_in? and !current_user.admin?
         #     flash[:danger] = "Only admin users can perform that action"
         #     redirect_to root_path
         # end
         return true
+    end
+    private
+    def generate_report
+        sleep 30
     end
 end
